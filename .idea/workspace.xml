@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d02cec-c828-442b-9eab-16984cc218e0" name="Default Changelist" comment="" />
+    <list default="true" id="57d02cec-c828-442b-9eab-16984cc218e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/card.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AnimateEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AnimateHoleEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AttendFeedback/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Lottie/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MapEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MergeEditEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NoMergeEditEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageLoadingMask/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TextHoleEle/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/tool.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/AllPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/PageAdvice.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/PageGuest.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/PageNormal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BottomArrow/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomArrow/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Music/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Music/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Wish/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wish/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1oglDNd6vYY7FzNnh3d2ZYiDuGW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,6 +64,9 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/views/edit" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/home" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -45,11 +79,44 @@
       <workItem from="1613715995360" duration="2393000" />
       <workItem from="1613726668090" duration="8449000" />
       <workItem from="1613790217026" duration="139000" />
-      <workItem from="1613790361759" duration="10482000" />
+      <workItem from="1613790361759" duration="145613000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/api/card.ts</url>
+          <line>408</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

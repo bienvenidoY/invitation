@@ -1,5 +1,5 @@
 <template>
-  <div class="wish-wrap" :class="{'wish-show': isShow}">
+  <div class="wish-wrap" :class="[wishCls, hideCls, isLongPage ? 'fixed': '']">
     <!-- 礼物 -->
     <Gift />
     <!-- 弹幕 -->
@@ -9,11 +9,10 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import Gift from './components/Gift/Gift.vue'
 import Barrage from './components/Barrage/Barrage.vue'
 import Greeting from './components/Greeting/Greeting.vue'
-
 
 export default defineComponent({
   name: 'Wish',
@@ -26,6 +25,22 @@ export default defineComponent({
     isShow: {
       type: Boolean,
       default: false,
+    }
+  },
+  setup() {
+    const isLongPage = window.isLongPage
+    const wishCls = computed(() => {
+
+    })
+
+    const hideCls = computed(() => {
+
+    })
+    return {
+      wishCls,
+      hideCls,
+      isLongPage,
+
     }
   }
 })

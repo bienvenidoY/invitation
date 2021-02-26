@@ -1,11 +1,16 @@
 <template>
-  <div class="music" @click="onChange" :class="isPlay ? 'music-open' : 'music-close'">
-    <img :src="isPlay ? MUSIC_IMG.open : MUSIC_IMG.close" class="music-img">
-    <audio :src="src" ref="audioRef" loop class="audio"></audio>
+  <div class="music"
+       @click="changeStatus"
+       :style="isHidden"
+       :class="[music.cls, longPageClass]"
+       >
+    <img :src="music.img" class="music-img">
+    <audio :src="music.audio" ref="audioRef" loop class="audio"></audio>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import {defineComponent, ref, reactive, computed, watch, nextTick, toRefs, onMounted} from 'vue'
+import lodashGet from 'lodash.get'
 
 const MUSIC_IMG: object = {
   close: '//qnm.hunliji.com/o_1bi67m2q63tilg81vh1q3v10g6c.png',
@@ -15,39 +20,106 @@ const MUSIC_IMG: object = {
 export default defineComponent({
   name: 'music',
   props: {
-    src: {
-      type: String,
-      default: '',
-    }
+    cardData: {
+      type: Object,
+      default: () => ({})
+    },
+    activePage: Number,
   },
-  setup: (props) =>  {
-    // 音乐播放停止控制
-    const isPlay = ref<boolean>(false)
+  emits: ['musicStatePause'],
+  setup: (props, { emit }) =>  {
+    const state = reactive({
+      isOpen: false,
+      hasPlayed: false,
+      loop: true,
+      musicChanged: null
+    })
     const audioRef = ref<HTMLAudioElement | null>(null)
 
-    const onChange = () => {
-      isPlay.value = !isPlay.value
-      if(isPlay.value) {
-        // 播放
-        audioRef.value?.play()
-      }else {
-        // 停止
-        audioRef.value?.pause()
+    const longPageClass = computed(() => {
+      return window.isLongPage ? 'fixed' : ''
+    })
+    const music = computed(() => {
+      const {music = {}} = props.cardData
+      return {
+        img: state.isOpen ? (music.img || MUSIC_IMG.open) : MUSIC_IMG.close,
+        audio: music.audio,
+        cls: state.isOpen ? 'music-open' : 'music-close'
       }
+    })
+
+    // 宾客页 地图页 礼品页不显示 音乐按钮
+    const isHidden = computed(() => {
+
+      const { page = [] } = props.cardData
+      const isGift = lodashGet(page[props.activePage], 'layout.layTemplate') === 'layTemplate_gift'
+      const isFeedback = lodashGet(page[props.activePage], 'layout.layTemplate') === 'layTemplate_feedback'
+      if(isGift || isFeedback || props.activePage > page.length - 1) {
+        return {
+          opacity: 0,
+          zIndex: -10
+        }
+      }
+      return  ''
+    })
+    const changeStatus = () => {
+      state.hasPlayed = true
+      if(audioRef.value.paused) {
+        state.isOpen = true
+        audioRef.value.play()
+      }else {
+        state.isOpen = false
+        audioRef.value.pause()
+      }
+      emit('musicStatePause', state.isOpen ? 'false' : 'true')
+    }
+    const play = () => {
+      state.isOpen = true
+      audioRef.value.play()
+      state.hasPlayed = true
+    }
+    const setOpenStatus = () => {
+      state.isOpen = true
+      emit('musicStatePause', 'false')
+    }
+    const autoPlay = () => {
+      if(audioRef.value) setOpenStatus()
+    }
+    const changeMusic = (source) => {
+      if(source.path) {
+        audioRef.src = source.path
+        state.musicChanged = source.path
+        state.loop = source.isCirculateMusic
+        if(state.isOpen) {
+          setOpenStatus()
+          state.hasPlayed = true
+        }else {
+          state.hasPlayed = false
+        }
+      }else {
+        state.musicChanged = source.path
+        audioRef.pause()
+      }
+    }
+    const injectGlobal = () => {
+      // changeMusic()
     }
 
     onMounted(() => {
-      if(props.src){
-        audioRef.value?.play()
-      }else {
-        console.log('ok')
-      }
+      nextTick(() => {
+        // injectGlobal()
+        // autoPlay()
+      })
     })
+
     return {
-      MUSIC_IMG,
-      isPlay,
+      ...toRefs(state),
+      longPageClass,
+      music,
+      isHidden,
       audioRef,
-      onChange,
+      changeStatus,
+      play,
     }
   },
 })
@@ -61,27 +133,28 @@ export default defineComponent({
   top: 20px;
   right: 20px;
   z-index: 100;
+
   .audio {
     opacity: 0;
   }
+
   .music-img {
     width: 100%;
     vertical-align: middle;
   }
-  &-open {
-    animation: player 3s infinite linear;
-  }
-  &-close {
+}
+.music-open {
+  animation: player 3s infinite linear;
+}
+.music-close {
 
+}
+@keyframes player {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes player {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(1turn);
-    }
+  100% {
+    transform: rotate(1turn);
   }
 }
 audio:not([controls]) {

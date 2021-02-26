@@ -4,11 +4,11 @@ body {
   width: 100%;
   height: 100%;
   font-size: 28px;
-  color: #2c3a46;
+  color: #333;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", STHeiti, SimSun, sans-serif;
+  font-family:  "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", STHeiti, SimSun, sans-serif;
 }
 
 label {
@@ -78,15 +78,10 @@ a:hover {
   float: left;
 }
 
-.g-btn {
+img {
+  display: block;
+}
+
+iframe, img, input {
   border: none;
-  outline: none;
-  background: rgba(255, 215, 10, 1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgba(158, 83, 29, 1);
-  vertical-align: bottom;
-  text-align: center;
-  font-weight: bold;
 }
