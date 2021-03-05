@@ -70,13 +70,14 @@ export default defineComponent({
       return false
     }
   },
-  setup({selfPage, cardData, elements, pageId, waitForLoading, inactiveShow, loadingDelay} , { emit }) {
+  setup(props , { emit }) {
+    const { selfPage, cardData, elements, pageId, waitForLoading, inactiveShow, loadingDelay } = props
     const state = reactive({
       isEdit: false,
     })
     const pageStyle = computed(() => {})
     const editElements = computed(() => {
-      return mer(elements)
+      return mer(info)
     })
     const elementDelay = computed(() => {
       return waitForLoading && loadingDelay || 0

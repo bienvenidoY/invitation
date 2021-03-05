@@ -6,8 +6,11 @@
   />
 </template>
 <script lang="ts">
-import {defineComponent, reactive, toRefs, computed, watch , onMounted} from 'vue'
+import {defineComponent, reactive, toRefs, computed, watch, onMounted, isRef} from 'vue'
 import Lottie from '/@/components/Lottie/index.vue'
+
+import Base64 from 'base-64'
+import axios from "axios";
 
 export default defineComponent({
   props: {
@@ -22,24 +25,31 @@ export default defineComponent({
   components: {
     Lottie,
   },
-  setup({cardData, imgStyle, selfPage, info, pageStatus, elementDelay, inactiveShow}, ) {
+  setup(props, ) {
+    let delayTimeId: any = null
     const state = reactive({
       anim: null,
-      delayTimeId: null,
       content: null,
       options: {},
       longPageStatus: false,
     })
 
     const play = computed(() => {
-      return window.isLongPage ?
-          state.longPageStatus ? "lpPlay" : "lpStop"
-          : !pageStatus || "leaving" === pageStatus && !inactiveShow ?
-              (state.anim && state.anim.stop(),
-                  "stop") : (playAnimate(),
-                  "play")
+      if(!props.pageStatus || "leaving" === props.pageStatus && !props.inactiveShow) {
+        state.anim && state.anim.stop()
+        clearInterval(delayTimeId)
+        return 'stop'
+      }else {
+        if(!props.inactiveShow) {
+          playAnimate()
+        }else {
+          clearInterval(delayTimeId)
+          state.anim && state.anim.stop()
+        }
+        return 'play'
+      }
     })
-    watch(info, (infoVal: object, oldInfoVal: object) => {
+    watch(() => props.info, (infoVal: object, oldInfoVal: object) => {
       const {playSpeed = '1', delay, fonts, path, isLoop} = infoVal
       if(fonts !== oldInfoVal.fonts){
         loadFonts()
@@ -48,27 +58,42 @@ export default defineComponent({
         getOptions()
       }
       if(!(oldInfoVal.playSpeed === playSpeed && oldInfoVal.delay === delay)) {
-        if(state.anim) {
-          state.anim.stop()
-        }
+        state.anim && state.anim.stop()
         playAnimate()
       }
     })
-    const getOptions = () => {
-
+    const getOptions = async () => {
+      let o = '', m = ''
+      if(props.info.path){
+        o = await axios.get(props.info.path).then((res) => {
+          return JSON.parse(Base64.decode(res.data))
+        })
+      }
+      if(props.info.content) {
+        m = JSON.parse(Base64.decode(props.info.content))
+      }
+      state.options = {
+        animationData: o && o.default || o || m,
+        loop: props.info.isLoop,
+        autoplay: false,
+      }
     }
 
     const playAnimate = () => {
-      const {delay = 0, playSpeed = '1', } = elements
-      state.anim && (state.delayTimeId = setTimeout(() => {
-        state.anim.setSpeed(playSpeed)
+      const info = (props.info || {})
+      const {delay = 0, playSpeed = '1',} = info
+      state.anim && (delayTimeId = setTimeout(() => {
+        state.anim.setSpeed(+playSpeed)
         state.anim.play()
-        clearTimeout(t.delayTimeId)
-      }, (+delay+ (elementDelay || 0)|| 0)))
+        clearTimeout(delayTimeId)
+      }, (+delay + (+props.elementDelay || 0) || 0)))
     }
+
     const handleAnimation = (anim) => {
-      state.value.anim = anim
-      ("activePage" === pageStatus || state.longPageStatus) && playAnimate()
+      state.anim = toRefs(anim)
+      if("activePage" === props.pageStatus) {
+        playAnimate()
+      }
     }
     // methods
     const getFontName = (url: string): string => {

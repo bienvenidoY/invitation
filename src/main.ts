@@ -6,7 +6,9 @@ import './styles/index.scss'
 import 'animate.css'
 import 'swiper/swiper.scss'
 
-const app = createApp(App)
+import VueTouch from '/@/directives/touch/index.js'
 
+const app = createApp(App)
+app.use(VueTouch)
 app.use(router)
 app.mount('#app')

@@ -1,13 +1,13 @@
 <template>
-  <div @touchstart="playMusic">
-    <AllPage
-        v-model:activePage="activePage"
-        :page="page"
-        :cardData="cardData"
-        :loadingDelay="loadingDelay"
-        :waitForLoading="waitForLoading"
-    ></AllPage>
-  </div>
+  <AllPage
+      v-model:activePage="activePage"
+      :playMusic="playMusic"
+      :page="page"
+      :cardInfo="cardInfo"
+      :cardData="cardData"
+      :loadingDelay="loadingDelay"
+      :waitForLoading="waitForLoading"
+  ></AllPage>
 
   <!-- 音频节点 -->
   <Music v-if="cardData.page"
@@ -16,6 +16,10 @@
          :activePage="activePage"/>
   <!--  祝福弹幕  -->
   <Wish v-if="false"/>
+  <BgImage
+      :page="page"
+      :activePage="activePage"
+  />
   <!-- 底部操作提示 -->
   <BottomArrow
       v-if="cardData.page"
@@ -36,8 +40,10 @@ import BottomArrow from '/@/components/BottomArrow/index.vue'
 import Wish from '/@/components/Wish/index.vue'
 import AllPage from './AllPage.vue'
 import PageLoadingMask from '/@/components/PageLoadingMask/index.vue'
+import BgImage from '/@/components/BgImage/index.vue'
 
 import {getCardInfo as fetchGetCardInfo} from '/@/api/card'
+import base64 from 'base-64'
 
 export default defineComponent({
   components: {
@@ -46,15 +52,16 @@ export default defineComponent({
     Wish,
     AllPage,
     PageLoadingMask,
+    BgImage,
   },
   setup() {
-    const state = reactive({
+     const state = reactive({
       cardData: {}, // 全量数据
       cardInfo: {}, // 卡片说明数据，包含新人信息、地图信息
       page: [], // 页面数据
       share: {}, // 微信分享需要的数据
       fontList: [], // 文字列表
-      activePage: 1, // 当前激活页码
+      activePage: 0, // 当前激活页码
       requestLoading: true, // 请求接口loading
       isShowPageLoading: false, // 加载动画loading
       percent: 0, // 加载动画 百分比

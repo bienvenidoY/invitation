@@ -252,12 +252,12 @@ export const getCardInfo = (id: string) => {
                                         {
                                             "delayTime": "5200",
                                             "durationTime": "600",
-                                            "type": "lightSpeedIn"
+                                            "type": "lightSpeedInRight"
                                         },
                                         {
                                             "delayTime": "6500",
                                             "durationTime": "500",
-                                            "type": " lightSpeedOut"
+                                            "type": " lightSpeedOutRight"
                                         }
                                     ],
                                     "fitFullScreen": true,

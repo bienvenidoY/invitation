@@ -3,15 +3,13 @@
   <div ref="lavContainerRef" :style="style"></div>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, toRefs, watch, ref, onUnmounted} from 'vue'
+import {defineComponent, reactive, toRefs, watch, ref, onUnmounted, onMounted} from 'vue'
+
+import lottieWeb from 'lottie-web'
 
 export default defineComponent({
   name: 'Lottie',
   props: {
-    info: {
-      type: Object,
-      default: () => ({}),
-    },
     options: {
       type: Object,
       required: true,
@@ -40,31 +38,25 @@ export default defineComponent({
       return false
     }
   },
-  setup({width, height, renderer, options, play}, { emit }) {
-    let anim: object = {
-      play: () => {},
-      pause: () => {},
-      destroy: () => {},
-    }
+  setup(props, { emit }) {
+    let anim = null
     const state = reactive({
       style: {
-        width: width ? `${width}px` : "100%",
-        height: height ? `${height}px` : "100%",
+        width: props.width ? `${props.width}px` : "100%",
+        height: props.height ? `${props.height}px` : "100%",
         overflow: "hidden",
         margin: "0 auto"
       },
     })
-    watch(options, (optionsVal, oldOptionsVal) => {
-      const {loop, animationData, path} = optionsVal
-      if (!(loop === oldOptionsVal.loop &&
-          animationData === oldOptionsVal.animationData &&
-          path === oldOptionsVal.path) &&
-          anim) {
-        anim.destroy()
+    watch(() => props.options, (optionsVal, oldOptionsVal) => {
+      if (!(optionsVal.loop === oldOptionsVal.loop &&
+          optionsVal.animationData === oldOptionsVal.animationData &&
+          optionsVal.path === oldOptionsVal.path)) {
+        anim && anim.destroy()
         init()
       }
     })
-    watch(() => play, (playVal, oldPlayVal) => {
+    watch(() => props.play, (playVal, oldPlayVal) => {
       if(playVal === 'lpPlay' && oldPlayVal === 'lpStop'){
          anim.play()
       }
@@ -74,20 +66,25 @@ export default defineComponent({
     })
     const lavContainerRef = ref(null)
     const init = () => {
-      anim = s.a.loadAnimation({
+      anim = lottieWeb.loadAnimation({
         container: lavContainerRef.value,
-        renderer: renderer,
-        loop: !1 !== options.loop,
-        autoplay: !1 !== options.autoplay,
-        animationData: options.animationData,
-        path: options.path
+        renderer: props.renderer,
+        loop: props.options.loop,
+        autoplay: props.options.autoplay,
+        animationData: props.options.animationData,
       })
+
       emit('animCreated', anim)
     }
+
+    onMounted(() => {
+      init()
+    })
 
     onUnmounted(() => {
       anim && anim.destroy()
     })
+
     return {
       ...toRefs(state),
       lavContainerRef,

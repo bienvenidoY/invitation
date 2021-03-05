@@ -1,5 +1,4 @@
 <template>
-  <!-- 标准化组件 -->
   <div class="animate-ele-wrap"
        :class="{'text-wrap': info.type === 'text' && info.smallFontPath}"
        :style="eleWrapStyle"
@@ -29,7 +28,7 @@
            class="animate-img"
            :data-ele="info.id"
            :style="imgStyle"
-           @click="paging"
+           @click.native="paging"
            v-if="info.img"
            :src="info.img">
     </div>
@@ -41,7 +40,7 @@ import MapEle from '/@/components/MapEle/index.vue'
 import AnimateHoleEle from '/@/components/AnimateHoleEle/index.vue'
 import TextHoleEle from '/@/components/TextHoleEle/index.vue'
 
-import { pxToRem } from '/@/utils/tool'
+import { pxToRem, addMs } from '/@/utils/tool'
 
 export default defineComponent({
   name: 'AnimateEle',
@@ -68,8 +67,7 @@ export default defineComponent({
       return false
     }
   },
-  setup({ info, cardData, selfPage, pageId, pageStatus, toNextPage, elementDelay, inactiveShow, fontList },
-        {emit}) {
+  setup(props, {emit}) {
     const state = reactive({
       anim: null,
       delayTimeId: null,
@@ -78,7 +76,7 @@ export default defineComponent({
       longPageStatus: false,
     })
     const eleWrapStyle = computed(() => {
-      const {fitFullScreen, zorder, type, smallFontPath} = info
+      const {fitFullScreen, zorder, type, smallFontPath} = props.info
       const isLongPage = window.isLongPage
       const params = {
         type,
@@ -103,7 +101,7 @@ export default defineComponent({
     })
 
     const eleStyle = computed(() => {
-      const {width, height, x = 0, y = 0, isDown, zorder, videoPath, isScale, fitFullScreen, rotate} = info
+      const {width, height, x = 0, y = 0, isDown, zorder, videoPath, isScale, fitFullScreen, rotate} = props.info
       const isLongPage = window.isLongPage
       if(videoPath) {
          notifyVideoInfo()
@@ -145,7 +143,7 @@ export default defineComponent({
       return  style
     })
     const imgStyle = computed(() => {
-      const { mask = {} } = info
+      const { mask = {} } = props.info
       return mask && mask.img && {
         "-webkit-mask-image": `url(${mask.img})`,
         "-webkit-mask-size": "100% 100%",
@@ -154,13 +152,7 @@ export default defineComponent({
       }
     })
     const paging = () => {
-      (info || {}).isCheckTurn && toNextPage()
-    }
-    const addMs = (time) => {
-      if(time.toString().indexOf('ms') === -1) {
-        return `${time}ms`
-      }
-      return time
+      (props.info || {}).isCheckTurn && props.toNextPage()
     }
     const getMinDelay = (millisecondStr) => {
       if(+millisecondStr.substring(0, millisecondStr.indexOf('ms')) <= 1000 ){
@@ -169,7 +161,7 @@ export default defineComponent({
       return millisecondStr
     }
     const getAnimateStyle = () => {
-      const {pageStatus, endAnimate, infinite, animate, id} = info
+      const { endAnimate, infinite, animate, id} = props.info
       const animationList = []
 
       let l = ''
@@ -179,8 +171,8 @@ export default defineComponent({
           linear = 'ease-in-out'
         }
         let delayTime = getMinDelay(addMs(infinite.delayTime || '0'))
-        if(pageStatus ==='activePage') {
-          delayTime = getMinDelay(addMs(+infinite.delayTime + elementDelay || '0'))
+        if(props.pageStatus ==='activePage') {
+          delayTime = getMinDelay(addMs(+infinite.delayTime + props.elementDelay || '0'))
         }
         l = `${infinite.type} ${addMs(infinite.durationTime)} ${linear} ${delayTime} forwards infinite`
       }
@@ -190,8 +182,8 @@ export default defineComponent({
           if(v) {
             let durationTime = addMs(+v.durationTime || '1000ms' )
             let delayTime = addMs(v.delayTime || '0')
-            if(pageStatus === 'activePage') {
-              delayTime = addMs(+v.delayTime + elementDelay || '0')
+            if(props.pageStatus === 'activePage') {
+              delayTime = addMs(+v.delayTime + props.elementDelay || '0')
             }
             let c = l ? ',' + l : ''
             if(i === 0){
