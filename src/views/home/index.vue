@@ -5,7 +5,6 @@
       :page="page"
       :cardInfo="cardInfo"
       :cardData="cardData"
-      :loadingDelay="loadingDelay"
       :waitForLoading="waitForLoading"
   ></AllPage>
 
@@ -15,7 +14,7 @@
          ref="musicRef"
          :activePage="activePage"/>
   <!--  祝福弹幕  -->
-  <Wish v-if="false"/>
+  <Wish v-bind="cardInfo.setup"  v-if="cardInfo.setup"/>
   <BgImage
       :page="page"
       :activePage="activePage"
@@ -41,9 +40,8 @@ import Wish from '/@/components/Wish/index.vue'
 import AllPage from './AllPage.vue'
 import PageLoadingMask from '/@/components/PageLoadingMask/index.vue'
 import BgImage from '/@/components/BgImage/index.vue'
-
-import {getCardInfo as fetchGetCardInfo} from '/@/api/card'
-import base64 from 'base-64'
+import { getFontList as fetchFontList } from '/@/api/card'
+import useCardInfo from './useCardInfo.ts'
 
 export default defineComponent({
   components: {
@@ -62,55 +60,34 @@ export default defineComponent({
       share: {}, // 微信分享需要的数据
       fontList: [], // 文字列表
       activePage: 0, // 当前激活页码
-      requestLoading: true, // 请求接口loading
       isShowPageLoading: false, // 加载动画loading
-      percent: 0, // 加载动画 百分比
-      loadingDelay: 0, // 加载动画时长
       waitForLoading: false, //
-      loading: false, //
+      loading: false, // 是否需要显示加载动画
       hasStartedMusic: false, // 音乐开始控制器：当页面第一次touchstart时播放音乐
     })
-    let a = null
-    const getCardInfo = () => {
-      state.requestLoading = true
-      state.loading = true
-      fetchGetCardInfo('1231').then(res => {
-        const data = res.data || {}
-        const {cardInfo = {}, share = {}, page = [] } = data
-        // initShar(share)
-        // if(state.isShowLoading) {
-        //   state.waitForLoading = true
-        // }
-        // if(page.length) {
-        //   page[0].loadingDelay = 1500
-        // }
 
-        // page, fontList isEdit 加载资源然后重置pageLoading
-        state.isShowPageLoading = true
-       a = setInterval(() => {
-          state.percent = state.percent + 10
-          console.log(state.percent)
-         if(state.percent === 100) {
-           state.isShowPageLoading = false
-           state.cardData = data
-           state.cardInfo = cardInfo
-           state.share = share
-           state.page = page
-           console.log(state.page)
-           clearInterval(a)
-           a = null
-         }
-        }, 100)
-      })
-        .finally(() => {
-          state.requestLoading = false
-        })
+    /* hooks: 请求卡片数据，同时计算加载资源等待时间和百分比 */
+    const { fontList } = toRefs(state)
+    const infoProps = {
+      id: '123123',
+      fontList,
     }
+    const {
+      cardInfo, share, page, cardData,
+      percent, fetchCardInfo, loading, isShowPageLoading
+    } = useCardInfo(infoProps)
+    state.cardInfo = cardInfo
+    state.share = share
+    state.page = page
+    state.cardData = cardData
 
+    // 请求字体资源库
     const getFontList = () => {
-      state.fontList = []
+      return fetchFontList().then(res => {
+        state.fontList = res.data
+      })
     }
-
+    //
     const musicRef = ref(null)
     const playMusic = () => {
       if(musicRef.value && !state.hasStartedMusic) {
@@ -119,13 +96,16 @@ export default defineComponent({
       }
     }
 
-    getCardInfo()
-    getFontList()
-    onMounted(() => {
 
+    onMounted(async () => {
+      await getFontList()
+      await fetchCardInfo(true)
     })
     return {
       ...toRefs(state),
+      loading,
+      isShowPageLoading,
+      percent,
       musicRef,
       playMusic,
     }

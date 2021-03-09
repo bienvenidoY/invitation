@@ -17,9 +17,9 @@ import {computed, defineComponent} from 'vue'
 export default defineComponent({
   name: 'PageLoadingMask',
   props: {
-    isShowLoading: Boolean,
-    loading: Boolean,
-    percent: {
+    isShowLoading: Boolean, // 是否显示loading
+    loading: Boolean, // 是否需要加载loading动画
+    percent: { // 百分比
       type: Number,
       default: 0,
     }
@@ -76,7 +76,6 @@ export default defineComponent({
   margin-top: -20px;
   left: 50%;
   text-align: center;
-  -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   z-index: 100
 }
@@ -97,7 +96,6 @@ export default defineComponent({
   overflow: hidden;
   vertical-align: middle;
   background-color: #f5f5f5;
-  border-radius: 2.66667rem
 }
 
 .page-loading .percent-content .progress-wrap .progress-color {
@@ -105,12 +103,10 @@ export default defineComponent({
   height: 100%;
   background-color: #ff8080;
   border-radius: 50px;
-  -webkit-transition: all .5s cubic-bezier(.08,.82,.17,1) 0s;
   transition: all .5s cubic-bezier(.08,.82,.17,1) 0s
 }
 
 .page-loading .percent-content .progress-text {
-  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   margin-top: 6px;
   color: #ff8080;
@@ -119,7 +115,6 @@ export default defineComponent({
   font-weight: 500;
   width: 50px;
   text-align: right;
-  -webkit-transition: all .5s cubic-bezier(.08,.82,.17,1) 0s;
   transition: all .5s cubic-bezier(.08,.82,.17,1) 0s
 }
 </style>

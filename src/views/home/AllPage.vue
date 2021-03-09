@@ -82,7 +82,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    loadingDelay: Number
   },
   emits: ['update:activePage'],
   setup(props, { emit }) {
@@ -179,11 +178,12 @@ export default defineComponent({
       // 自动翻页时间
       let turnAutoSecond = lodashGet(props.page[props.activePage], 'nextTurn.turnAutoSecond', 0)
       // 加载资源延迟时间
+      const loadingDelay = lodashGet(props.page[props.activePage], 'loadingDelay', 0)
       // 如果有自动翻页时间
       if(+turnAutoSecond) {
         // 加载资源延迟时间需要累加
         if(props.waitForLoading) {
-          turnAutoSecond = props.waitForLoading ? +turnAutoSecond + props.loadingDelay: turnAutoSecond
+          turnAutoSecond = props.waitForLoading ? +turnAutoSecond + loadingDelay: turnAutoSecond
         }
         // 启动定时器
         state.autoTurnTimeId = setTimeout(() => {

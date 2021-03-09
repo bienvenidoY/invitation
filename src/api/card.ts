@@ -1,6 +1,5 @@
 export const getCardInfo = (id: string) => {
-    console.log(id)
-    return new Promise<object>(resolve => {
+    return new Promise<any>(resolve => {
         resolve({
             data: {
                 "browseType": 0,
@@ -2229,6 +2228,578 @@ export const getCardInfo = (id: string) => {
                     "url": "https://www.hunliji.com/m/ling-xi/new-card/index.html?card_id=NDc2NjAwMTBmaXJlX2Nsb3Vk"
                 },
                 "shareImg": "https://qnm.hunliji.com/o_1du4r1jqo1t97vjvqgo1hf0eed21.jpg"
+            }
+        })
+    })
+}
+
+export const getFontList = () => {
+    return new Promise<any>(resolve => {
+        resolve(
+          {
+              data: [
+                  {
+                      "defaultLineHeight": 114,
+                      "fontSize": 100,
+                      "id": 69,
+                      "logo": "",
+                      "name": "FZLTXHK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/lk3GfFhPxTIbW-sI-AU2k-SES6aL"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 68,
+                      "name": "FZZHUZMCSJF--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/lpr_p8NREqix_TOTZNx8xEHxfAg3"
+                  },
+                  {
+                      "defaultLineHeight": 112.5,
+                      "fontSize": 100,
+                      "id": 67,
+                      "name": "FZFW-ZHENZTJF-L--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/FjW-VvlZFmy9ePON0b1a-pDZv4P_"
+                  },
+                  {
+                      "defaultLineHeight": 110.5,
+                      "fontSize": 100,
+                      "id": 66,
+                      "name": "FZZJ-XYZJF--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/luhjrUf1pv3njXiIPk5TeTrDPrxG"
+                  },
+                  {
+                      "defaultLineHeight": 117,
+                      "fontSize": 100,
+                      "id": 64,
+                      "name": "FZZYSK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/lvwhX1SdpDIUabLY7GJ1hc2VEXzi"
+                  },
+                  {
+                      "defaultLineHeight": 114,
+                      "fontSize": 100,
+                      "id": 63,
+                      "name": "FZYTK--GBK1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/livvPIGWOZTTQifHml0psqWDNqWH"
+                  },
+                  {
+                      "defaultLineHeight": 113,
+                      "fontSize": 100,
+                      "id": 59,
+                      "name": "FZXDXK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/ll_mQabLAPjRzpiAboHjc76RQSc6"
+                  },
+                  {
+                      "defaultLineHeight": 124,
+                      "fontSize": 100,
+                      "id": 58,
+                      "name": "FZWBK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/lrgs8mtEowX1GxEDrJZL4b1ATPWQ"
+                  },
+                  {
+                      "defaultLineHeight": 122,
+                      "fontSize": 100,
+                      "id": 57,
+                      "name": "FZSXSLKK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/llfQ6c21YBBy4HQEOVIjMgHSBqmC"
+                  },
+                  {
+                      "defaultLineHeight": 100,
+                      "fontSize": 100,
+                      "id": 56,
+                      "name": "FZSHIDSJF_ZHONG--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/Ft82OJqc3Vd5Reh7DI0xLD70vEun"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 55,
+                      "name": "FZSHIDSJF--GBK1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/FhK88hH-adeAGUwnzmUCgBmCW-EY"
+                  },
+                  {
+                      "defaultLineHeight": 108,
+                      "fontSize": 100,
+                      "id": 53,
+                      "name": "FZQIGXKJF--GBK1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/lg5MLZvXIINs1UR6Zf_OYcjUVMyO"
+                  },
+                  {
+                      "defaultLineHeight": 121.5,
+                      "fontSize": 100,
+                      "id": 52,
+                      "name": "FZPINGXYSK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/lgKG0Kxo0YZ3RAkqV0VONbd-pgBg"
+                  },
+                  {
+                      "defaultLineHeight": 109.5,
+                      "fontSize": 100,
+                      "id": 51,
+                      "name": "FZKTK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/ljgZhAwuIzBi9FobeuyqjaIzpQY-"
+                  },
+                  {
+                      "defaultLineHeight": 111.5,
+                      "fontSize": 100,
+                      "id": 50,
+                      "name": "FZFSK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/llux1691JzPAZ5QfVSVFgVQwMsF9"
+                  },
+                  {
+                      "defaultLineHeight": 100,
+                      "fontSize": 100,
+                      "id": 49,
+                      "name": "FZBIAOYSK--GBK1-0",
+                      "size": 0,
+                      "top": 6,
+                      "url": "https://qnm.hunliji.com/lnievxTJ0baKlN8yc_Tr5hEYqFjB"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 48,
+                      "name": "FZBWKSK--GBK1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/lsGhJMKfiuSFsQUCJh5LPisHiA7u"
+                  },
+                  {
+                      "defaultLineHeight": 119,
+                      "fontSize": 100,
+                      "id": 47,
+                      "name": "FZBSK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/llpGD0FMN86kgvauyuQzCCvt4O_K"
+                  },
+                  {
+                      "defaultLineHeight": 118,
+                      "fontSize": 100,
+                      "id": 45,
+                      "name": "FZZJ-RDLJF--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/loHE1hp5hhseFvsCLhq_BoWI285k"
+                  },
+                  {
+                      "defaultLineHeight": 113.5,
+                      "fontSize": 100,
+                      "id": 44,
+                      "name": "FZRUIZHK--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/liT4OgTu2LMWDEUBHlvW0Gyxjmve"
+                  },
+                  {
+                      "defaultLineHeight": 123,
+                      "fontSize": 100,
+                      "id": 43,
+                      "name": "Industrial736BT-Roman",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/FsmqPCZqq6sPvWMOQWMmDNpx82zm"
+                  },
+                  {
+                      "defaultLineHeight": 123,
+                      "fontSize": 100,
+                      "id": 42,
+                      "name": "FZY3K--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/ltU_ez4bwejlfndP3Ulb9Qpq_YIk"
+                  },
+                  {
+                      "defaultLineHeight": 122,
+                      "fontSize": 100,
+                      "id": 41,
+                      "name": "FZY1K--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/loh_KhkoJ3oWlBnrlQBRvRQsmFzj"
+                  },
+                  {
+                      "defaultLineHeight": 115,
+                      "fontSize": 100,
+                      "id": 40,
+                      "name": "FZLANTY_XIK--GBK1-0",
+                      "size": 0,
+                      "top": 0,
+                      "url": "https://qnm.hunliji.com/lpTnGQvCE5iY3xiOghc24dxMNGPE"
+                  },
+                  {
+                      "defaultLineHeight": 146,
+                      "fontSize": 100,
+                      "id": 39,
+                      "name": "Quentin",
+                      "size": 0,
+                      "top": 24,
+                      "url": "https://qnm.hunliji.com/FoeuuzmEMbZ27TKrG5sa_az16Rva"
+                  },
+                  {
+                      "defaultLineHeight": 126,
+                      "fontSize": 100,
+                      "id": 38,
+                      "name": "FZFW-ZhuZiAOldMin-L--GB1-0",
+                      "size": 0,
+                      "top": 14,
+                      "url": "https://qnm.hunliji.com/lgtlIGE4XX4D5aw2nmWyyYZ84G0u"
+                  },
+                  {
+                      "defaultLineHeight": 110,
+                      "fontSize": 100,
+                      "id": 37,
+                      "name": "YOUSHEhaoshenti",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/Frg5KYG2bAUY9Khr-YAeTZhvRVFE"
+                  },
+                  {
+                      "defaultLineHeight": 119,
+                      "fontSize": 100,
+                      "id": 36,
+                      "name": "FZZXHK--GBK1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/lsiLf3A9vD72LmFmn_BYUWdfGapd"
+                  },
+                  {
+                      "defaultLineHeight": 108,
+                      "fontSize": 100,
+                      "id": 35,
+                      "name": "FZSJ-XXXYJW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnm.hunliji.com/Fvr261Bks7CxSnjE0dwVMa0v5pGE"
+                  },
+                  {
+                      "defaultLineHeight": 114,
+                      "fontSize": 100,
+                      "id": 34,
+                      "name": "NixieOne-Regular",
+                      "size": 0,
+                      "top": 4,
+                      "url": "https://qnm.hunliji.com/FmZDSvxhCKHUogphZeK7hkxNXfcP"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 33,
+                      "name": "FZXIJINLJW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnc.hunliji.com/FZXiJinLJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 32,
+                      "name": "FZCUJINLJW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnc.hunliji.com/FZCuJinLJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 116,
+                      "fontSize": 100,
+                      "id": 31,
+                      "name": "FZLTKHJW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnc.hunliji.com/FZLTKHJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 108,
+                      "fontSize": 100,
+                      "id": 30,
+                      "name": "Aldo-SemiBold",
+                      "size": 0,
+                      "top": 6,
+                      "url": "https://qnc.hunliji.com/Aldo-SemiBold.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 29,
+                      "name": "FZFEIFT_JW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnc.hunliji.com/FZFeiFTJ_Xi.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 114,
+                      "fontSize": 100,
+                      "id": 28,
+                      "name": "FZFEIFT_CUJW--GB1-0",
+                      "size": 0,
+                      "top": 8,
+                      "url": "https://qnc.hunliji.com/FZFeiFTJ_Cu.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 124,
+                      "fontSize": 100,
+                      "id": 27,
+                      "name": "FZZJ-PANYBJW",
+                      "size": 0,
+                      "url": "https://qnc.hunliji.com/FZZJ-PANYBJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 116.5,
+                      "fontSize": 100,
+                      "id": 26,
+                      "name": "FZKATK--GBK1-0",
+                      "size": 0,
+                      "url": "https://qnc.hunliji.com/FZKATK--GBK1-0.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 111.5,
+                      "fontSize": 100,
+                      "id": 24,
+                      "name": "fzfsjw--gb1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/o_1drct9iqnbr31tno1fnhod81lms9.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 119,
+                      "fontSize": 100,
+                      "id": 22,
+                      "name": "FZBSJW--GB1-0",
+                      "size": 0,
+                      "url": "https://qnm.hunliji.com/o_1dlorhoqg122mee7pnanr01vht9.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 117,
+                      "fontSize": 100,
+                      "id": 21,
+                      "name": "FZLTZHUNHK--GBK1-0",
+                      "size": 7475.2,
+                      "url": "https://qnm.hunliji.com/o_1dlom49hm1anap8h1mfj1cdg1ki9.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 111,
+                      "fontSize": 100,
+                      "id": 20,
+                      "name": "FZSKBXKK--GBK1-0",
+                      "size": 7475.2,
+                      "url": "https://qnm.hunliji.com/o_1dl70o51hn6p5u610mc1p0r1k5r9.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 112.5,
+                      "fontSize": 100,
+                      "id": 19,
+                      "name": "FZZQK--GBK1-0",
+                      "size": 4198.4,
+                      "url": "https://qnm.hunliji.com/o_1dl1da01l1b13t9d9saom51c3n9.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 121.5,
+                      "fontSize": 100,
+                      "id": 17,
+                      "name": "FZYANS_JW--GB1-0",
+                      "size": 2786.5,
+                      "url": "https://qnm.hunliji.com/FZYANSJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 110,
+                      "fontSize": 100,
+                      "id": 16,
+                      "name": "FZZHYJW--GB1-0",
+                      "size": 2982.4,
+                      "url": "https://qnm.hunliji.com/fzzhyjw.ttf"
+                  },
+                  {
+                      "defaultLineHeight": 100,
+                      "fontSize": 100,
+                      "id": 15,
+                      "name": "FZY3JW--GB1-0",
+                      "size": 4968.3,
+                      "top": 3,
+                      "url": "https://qnm.hunliji.com/FZY3JW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 116,
+                      "fontSize": 100,
+                      "id": 14,
+                      "name": "FZLTHJW--GB1-0",
+                      "size": 2342.7,
+                      "url": "https://qnm.hunliji.com/FZLTHJW.TTF"
+                  },
+                  {
+                      "defaultLineHeight": 115,
+                      "fontSize": 100,
+                      "id": 12,
+                      "name": "FZLanTingHei-DB-GBK",
+                      "size": 7330,
+                      "url": "https://qnm.hunliji.com/luDpaJBicAjCXyS3Ec0psFwpOE5R"
+                  },
+                  {
+                      "defaultLineHeight": 122,
+                      "fontSize": 100,
+                      "id": 11,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZQiTi-S14S.png",
+                      "name": "FZQiTi-S14S",
+                      "size": 6420.48,
+                      "url": "https://qnm.hunliji.com/lqI7qCtMGU4XhS_0rrO28ASI0n4v"
+                  },
+                  {
+                      "defaultLineHeight": 100,
+                      "fontSize": 100,
+                      "id": 10,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZSong%20III-Z05S.png",
+                      "name": "FZSong III-Z05S",
+                      "size": 4812.8,
+                      "top": 6,
+                      "url": "https://qnm.hunliji.com/lpgzbZgIgr5_cXuaebGoscNDbjYI"
+                  },
+                  {
+                      "defaultLineHeight": 114,
+                      "fontSize": 100,
+                      "id": 9,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZLanTingHeiS-EL-GB.png",
+                      "name": "FZLanTingHeiS-EL-GB",
+                      "size": 2355.2,
+                      "url": "https://qnm.hunliji.com/FskTGbOTxj7RjeVixSbpb4j7bOYa"
+                  },
+                  {
+                      "defaultLineHeight": 113,
+                      "fontSize": 100,
+                      "id": 8,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZYouXian-Z09S.png",
+                      "name": "FZYouXian-Z09S",
+                      "size": 1945.6,
+                      "url": "https://qnm.hunliji.com/FsDUbfkyqcWllcQDCNkeSHy-k8kP"
+                  },
+                  {
+                      "defaultLineHeight": 110.5,
+                      "fontSize": 100,
+                      "id": 7,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZYingBiXingShu-S16S.png",
+                      "name": "FZYingBiXingShu-S16S",
+                      "size": 6041.6,
+                      "url": "https://qnm.hunliji.com/lsJZ_iUAKyeX0XntdyIDxsJlqatZ"
+                  },
+                  {
+                      "defaultLineHeight": 122,
+                      "fontSize": 100,
+                      "id": 6,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/SnellRoundhand%20Script.png",
+                      "name": "SnellRoundhand Script",
+                      "size": 72.26,
+                      "url": "https://qnm.hunliji.com/FkpzioNTYeFrKbkUAg4mSS2GWn9n"
+                  },
+                  {
+                      "defaultLineHeight": 117,
+                      "fontSize": 100,
+                      "id": 5,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZFengYaSongS-GB.png",
+                      "name": "FZFengYaSongS-GB",
+                      "size": 5058.56,
+                      "url": "https://qnm.hunliji.com/lichJUeG-uytwgdPj8x6Ml0PCEPp"
+                  },
+                  {
+                      "defaultLineHeight": 109,
+                      "fontSize": 100,
+                      "id": 4,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZQingKeBenYueSongS-R-GB.png",
+                      "name": "FZQingKeBenYueSongS-R-GB",
+                      "size": 3072,
+                      "url": "https://qnm.hunliji.com/FpWlVA5389Fet5dTEur-aZ8ga1_O"
+                  },
+                  {
+                      "defaultLineHeight": 153,
+                      "fontSize": 100,
+                      "id": 3,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/LainieDaySH.png",
+                      "name": "LainieDaySH",
+                      "size": 32.61,
+                      "url": "https://qnm.hunliji.com/FmfyS4qhoUQWC7ABoCbH3ogumZMm"
+                  },
+                  {
+                      "defaultLineHeight": 109.5,
+                      "fontSize": 100,
+                      "id": 2,
+                      "logo": "http://7u2nhk.com1.z0.glb.clouddn.com/FZKai-Z03S.png",
+                      "name": "FZKai-Z03S",
+                      "size": 3829.76,
+                      "url": "https://qnm.hunliji.com/Fo4VPsD2zLbqmfTm4eVHR-n-CU0K"
+                  },
+                  {
+                      "defaultLineHeight": 108,
+                      "fontSize": 100,
+                      "id": 1,
+                      "logo": "http://7u2nhk.com3.z0.glb.qiniucdn.com/%E6%96%B9%E6%AD%A3%E9%9D%99%E8%95%BE%E7%AE%80%E4%BD%93@3x.png",
+                      "name": "FZJingLeiS-R-GB",
+                      "size": 6553.6,
+                      "url": "https://qnm.hunliji.com/lv9e2ePnYe5cBXr0rCtNGrsvbm9H"
+                  }
+              ]
+          }
+        )
+    })
+}
+
+export const getGiftAndReplyList = () => {
+    return new Promise<any>(resolve => {
+        resolve({
+            data: {
+                "userId": 36412771,
+                "userName": "冰冰和冰冰",
+                "gifts": [
+                    {
+                        "id": 0,
+                        "giverName": "婚礼纪",
+                        "gift": {
+                            "id": 0,
+                            "title": "百合花",
+                            "desc": "百年好合",
+                            "icon": "https://qnm.hunliji.com/o_1djbfaolfli17pbh0e1sehlng9.png",
+                            "icon2": "https://qnm.hunliji.com/o_1djbfaolfli17pbh0e1sehlng9.png"
+                        }
+                    }
+                ],
+                "replies": [
+                    {
+                        "name": "是水电费",
+                        "wishLanguage": "对对对",
+                        "createdAt": "2021-02-18 15:05:42"
+                    },
+                    {
+                        "name": "是水电费",
+                        "wishLanguage": "对对对",
+                        "createdAt": "2021-02-18 15:05:25"
+                    },
+                    {
+                        "name": "是水电费",
+                        "wishLanguage": "撒旦法",
+                        "createdAt": "2021-02-18 15:05:02"
+                    },
+                    {
+                        "name": "是水电费",
+                        "wishLanguage": "阿斯达",
+                        "createdAt": "2021-02-18 15:04:47"
+                    },
+                    {
+                        "name": "是",
+                        "wishLanguage": "水电费感受到",
+                        "createdAt": "2021-02-18 15:04:38"
+                    }
+                ]
             }
         })
     })

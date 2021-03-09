@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d02cec-c828-442b-9eab-16984cc218e0" name="Default Changelist" comment="feat: update some code">
-      <change afterPath="$PROJECT_DIR$/src/components/BgImage/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/directives/touch/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/page-animate.scss" afterDir="false" />
+    <list default="true" id="57d02cec-c828-442b-9eab-16984cc218e0" name="Default Changelist" comment=":sparkles:feat: done first demo">
+      <change afterPath="$PROJECT_DIR$/src/components/Wish/components/Barrage/BarrageTip.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/useCardInfo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AnimateEle/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnimateEle/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AnimateHoleEle/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnimateHoleEle/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Lottie/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lottie/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageLoadingMask/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLoadingMask/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Wish/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wish/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/home/AllPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/AllPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/PageNormal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/PageNormal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -69,7 +66,8 @@
       <workItem from="1613726668090" duration="8449000" />
       <workItem from="1613790217026" duration="139000" />
       <workItem from="1613790361759" duration="181555000" />
-      <workItem from="1614771122969" duration="40684000" />
+      <workItem from="1614771122969" duration="42770000" />
+      <workItem from="1615167791518" duration="34000000" />
     </task>
     <task id="LOCAL-00001" summary="feat: update some code">
       <created>1614335419632</created>
@@ -78,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614335419632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=":sparkles:feat: done first demo">
+      <created>1614929161159</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614929161159</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +113,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: update some code" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: update some code" />
+    <MESSAGE value=":sparkles:feat: done first demo" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles:feat: done first demo" />
   </component>
 </project>
